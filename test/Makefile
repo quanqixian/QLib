@@ -1,6 +1,6 @@
 TARGET=test
-$(TARGET): ./unitTest.cpp ../QLib/Object.cpp
-	g++ $^ -o $@   \
+$(TARGET): ./unitTest.cpp ../QLib/Object.cpp  ./test*.h
+	g++ $^ -o $@ -g\
         -lgtest    \
 		-lpthread  \
 		-I../QLib/ \

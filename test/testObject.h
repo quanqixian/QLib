@@ -16,13 +16,13 @@ using namespace QLib;
  */
 TEST(testObject, new_del)
 {
-    class Parent:public Object
+    class Parent : public Object
     {
     public:
             int i;
             int j;
     };
-    class Child:public Parent
+    class Child : public Parent
     {
     public:
             int k;
@@ -30,11 +30,22 @@ TEST(testObject, new_del)
 
     Object *obj1 = new Parent();
     Object *obj2 = new Child();
+
     EXPECT_NE(obj1, nullptr);
     EXPECT_NE(obj2, nullptr);
 
     delete obj1;
     delete obj2;
+#if 0
+    Object *obj1Array = new Parent[10];
+    Object *obj2Array = new Child[10];
+
+    EXPECT_NE(obj1Array, nullptr);
+    EXPECT_NE(obj2Array, nullptr);
+
+	delete [] obj1Array;
+	delete [] obj2Array;
+#endif 
 }
 
 #endif
