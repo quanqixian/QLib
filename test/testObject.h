@@ -37,15 +37,21 @@ TEST(testObject, new_del)
     delete obj1;
     delete obj2;
 #if 0
+    /* 参考More Effective C++(条款三：绝对不要以多态方式处理数组) */
     Object *obj1Array = new Parent[10];
     Object *obj2Array = new Child[10];
+
+    delete [] obj1Array;
+    delete [] obj2Array;
+#endif
+    Parent *obj1Array = new Parent[10];
+    Child *obj2Array = new Child[10];
 
     EXPECT_NE(obj1Array, nullptr);
     EXPECT_NE(obj2Array, nullptr);
 
-	delete [] obj1Array;
-	delete [] obj2Array;
-#endif 
+    delete [] obj1Array;
+    delete [] obj2Array;
 }
 
 #endif
