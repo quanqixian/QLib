@@ -44,13 +44,13 @@ QLib使用第三方库googletest进行了各个类的单元测试：
 
 在QLib目录下执执行下面的编译命令，将编译第三方库和所有单元测试
 
-```makefile
+```shell
 make
 ```
 
 ### 5.2执行单元测试
 
-```makefile
+```shell
 make runTest
 ```
 
