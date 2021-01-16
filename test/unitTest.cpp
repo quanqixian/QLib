@@ -1,4 +1,5 @@
-#include "testObject.h" /* 测试Object类 */
+#include "testObject.h"          /* 测试Object类 */
+#include "testException.h"       /* 测试Exception类及其子类 */
 
 int main(int argc, char **argv)
 {

@@ -14,12 +14,12 @@ void * Object::operator new[](unsigned long int size) throw()
     return malloc(size);
 }
 
-void Object::operator delete(void *p)
+void Object::operator delete(void * p)
 {
     free(p);
 }
 
-void Object::operator delete[](void *p)
+void Object::operator delete[](void * p)
 {
     free(p);
 }

@@ -1,12 +1,13 @@
 TARGET=test
-$(TARGET): ./unitTest.cpp ../QLib/Object.cpp  ./test*.h
+GTEST_DIR=$(shell dirname `find ../thirdparty/googletest/install/  -name libgtest.a`)
+
+$(TARGET): ./unitTest.cpp ../QLib/*.cpp  ./test*.h
 	g++ $^ -o $@ -g -std=c++11\
         -lgtest    \
 		-lpthread  \
 		-I../QLib/ \
 		-I../thirdparty/googletest/install/include/ \
-		-L../thirdparty/googletest/install/lib/     \
-		-L../thirdparty/googletest/install/lib64/
+		-L$(GTEST_DIR)
 
 .PHONY:runTest
 runTest:
