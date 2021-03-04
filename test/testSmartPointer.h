@@ -6,9 +6,6 @@
 #include "gtest/gtest.h"
 
 using namespace QLib;
-using namespace std;
-
-static int g_num = 0;
 
 /**
  * @fn
@@ -23,24 +20,30 @@ TEST(testSmartPointer, testAutoFree)
     class Test
     {
     public:
+        static int & getCount()
+        {
+            static int count = 0;
+            return count;
+        }
+    public:
         Test()
         {
-            g_num = 1;
+            getCount() = 1;
         }
         ~Test()
         {
-            g_num = 2;
+            getCount() = 2;
         }
     };
 
     auto test = []()->void {
         SmartPointer<Test> sp1 = new Test();
-         EXPECT_EQ(g_num, 1);
+        EXPECT_EQ(Test::getCount(), 1);
     };
 
     test();
 
-    EXPECT_EQ(g_num, 2);
+    EXPECT_EQ(Test::getCount(), 2);
 }
 
 /**

@@ -3,6 +3,7 @@
 
 #include "Pointer.h"
 #include "Exception.h"
+#include <cstdlib>
 
 namespace QLib
 {
@@ -26,7 +27,7 @@ SharedPointer<T>::SharedPointer(T * p) : m_ref(nullptr)
 {
     if(p)
     {
-        this->m_ref =static_cast<int * >(std::malloc(sizeof(int)));
+        this->m_ref =static_cast<int * >(malloc(sizeof(int)));
         if(this->m_ref)
         {
             *(this->m_ref) = 1;
