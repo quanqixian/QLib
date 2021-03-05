@@ -40,6 +40,7 @@ QLib使用第三方库googletest进行了各个类的单元测试：
 - [顶层父类Object单元测试](./test/testObject.h)
 - [异常类族单元测试](./test/testException.h)
 - [智能指针-SmartPointer单元测试](./test/testSmartPointer.h)
+- [智能指针-SharedPointer单元测试](./test/testSharedPointer.h)
 
 ## 5.编译
 
