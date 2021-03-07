@@ -1,6 +1,6 @@
 ![QWorkShop](./docs/00_README/pic/QWorkShop.png)
 
-## 1.QLib库内容介绍
+## 1.QLib库概述
 
 QLib是使用c++模板技术实现的一个轻量级的类"STL"库，实现了链表、栈、队列、树、图等数据结构。
 
