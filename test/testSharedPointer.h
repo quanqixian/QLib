@@ -10,7 +10,7 @@ using namespace std;
 /**
  * @fn
  * @brief      测试SharedPointer生命周期结束时主动释放堆空间
- *             在构造函数中设置全局变量g_num的值为1，在析构函数中设置全局变量的值为2
+ *             在构造函数中设置count变量的值为1，在析构函数中设置count的值为2
  * @param[in]
  * @param[out]
  * @retval
