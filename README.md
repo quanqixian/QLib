@@ -30,8 +30,8 @@ QLib中各个类的继承关系如下图：
 
 - [01.顶层父类Object的创建](./docs/01_顶层父类Object/01.顶层父类Object的创建.md)
 - [02.异常类的设计与实现](./docs/02_异常类的设计与实现/02.异常类的设计与实现.md)
-- [03.智能指针的设计与实现1-SmartPointer](./docs/03_智能指针的设计与实现/03.智能指针的设计与实现1-SmartPointer.md)
-- [03.智能指针的设计与实现2-SharedPointer](./docs/03_智能指针的设计与实现/03.智能指针的设计与实现2-SharedPointer.md)
+- [03-1.智能指针的设计与实现1-SmartPointer](./docs/03_智能指针的设计与实现/03.智能指针的设计与实现1-SmartPointer.md)
+- [03-2.智能指针的设计与实现2-SharedPointer](./docs/03_智能指针的设计与实现/03.智能指针的设计与实现2-SharedPointer.md)
 - [04-1.线性表的抽象实现](./docs/04_顺序表/04-1.线性表的抽象实现.md)
 
 ## 4.单元测试
