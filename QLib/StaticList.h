@@ -16,13 +16,15 @@ public:
     int capacity() const;
 };
 
-StaticList<T>::StaticList()
+template <typename T, int N>
+StaticList<T, N>::StaticList()
 {
     this->m_array = m_space;
     this->m_length = 0;
 }
 
-int StaticList<T>::capacity() const
+template <typename T, int N>
+int StaticList<T, N>::capacity() const
 {
     return N;
 }

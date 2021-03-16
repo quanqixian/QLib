@@ -18,6 +18,7 @@ public:
     ~DynamicList();
 };
 
+template <typename T>
 DynamicList<T>::DynamicList(int capacity)
 {
     this->m_array = new T[capacity];
@@ -32,11 +33,13 @@ DynamicList<T>::DynamicList(int capacity)
     }
 }
 
+template <typename T>
 int DynamicList<T>::capacity() const
 {
     return m_capacity;
 }
 
+template <typename T>
 void DynamicList<T>::resize(int capacity)
 {
     if(capacity != m_capacity)
@@ -64,6 +67,7 @@ void DynamicList<T>::resize(int capacity)
     }
 }
 
+template <typename T>
 DynamicList<T>::~DynamicList()
 {
     delete[] this->m_array;
