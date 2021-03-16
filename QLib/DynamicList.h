@@ -13,7 +13,7 @@ protected:
     int m_capacity;
 public:
     DynamicList(int capacity);
-    capacity() const;
+    int capacity() const;
     void resize(int capacity);
     ~DynamicList();
 };
