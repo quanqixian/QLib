@@ -24,7 +24,7 @@ public:
 
     /* 顺序存储线性表的数组访问方式 */
     T & operator[] (int i);
-    T operator[](int i) const;
+    const T & operator[](int i) const;
 
     /* 顺序存储空间的容量 */
     virtual int capacity() const = 0;
@@ -113,11 +113,11 @@ void SeqList<T>::clear()
 template <typename T>
 T& SeqList<T>::operator[](int i)
 {
-    return const_cast< SeqList<T> & >((static_cast< const SeqList<T> & >(*this) )[i]);
+    return const_cast<T &>((static_cast< const SeqList<T> & >(*this) )[i]);
 }
 
 template <typename T>
-T SeqList<T>::operator[](int i) const
+const T& SeqList<T>::operator[](int i) const
 {
     if((0 <= i) && (i < m_length))
     {
