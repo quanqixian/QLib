@@ -2,6 +2,7 @@
 #include "testException.h"       /* 测试Exception类及其子类 */
 #include "testSmartPointer.h"    /* 测试SmartPointer类 */
 #include "testSharedPointer.h"   /* 测试SharedPointer类 */
+#include "testStaticList.h"      /* 测试StaticList类 */
 
 int main(int argc, char **argv)
 {
