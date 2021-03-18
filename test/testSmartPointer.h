@@ -48,7 +48,7 @@ TEST(testSmartPointer, testAutoFree)
 
 /**
  * @fn
- * @brief      测试SmartPointer类->及*
+ * @brief      测试SmartPointer类-> * 和get函数
  * @param[in]
  * @param[out]
  * @retval
@@ -68,6 +68,17 @@ TEST(testSmartPointer, testPointerOperator)
 
     EXPECT_EQ(sp1->id, 1);
     EXPECT_EQ((*sp1).age, 10);
+
+    EXPECT_EQ(sp1.get()->id, 1);
+    EXPECT_EQ((*sp1.get()).age, 10);
+
+	/* 测试const成员函数 */
+    const  SmartPointer<Student> sp2 = new Student();
+    sp2->age = 10;
+    (*sp2).id = 1;
+
+    EXPECT_EQ(sp2->id, 1);
+    EXPECT_EQ((*sp2).age, 10);
 }
 
 /**
