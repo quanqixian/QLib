@@ -1,7 +1,7 @@
-#ifndef _TEST_STATIC_LIST_H_
-#define _TEST_STATIC_LIST_H_
+#ifndef _TEST_DYNAMIC_LIST_H_
+#define _TEST_DYNAMIC_LIST_H_
 
-#include "StaticList.h"
+#include "DynamicList.h"
 #include "Exception.h"
 #include "gtest/gtest.h"
 
@@ -14,9 +14,9 @@ using namespace QLib;
  * @param[out]
  * @retval
  */
-TEST(testStaticList, testBasicUse)
+TEST(testDynamicList, testBasicUse)
 {
-    StaticList<int, 5>list;
+    DynamicList<int>list(5);
     EXPECT_EQ(list.capacity(), 5);
 
     for(int i = 0; i < list.capacity(); i++)
@@ -77,9 +77,9 @@ TEST(testStaticList, testBasicUse)
  * @param[out]
  * @retval
  */
-TEST(testStaticList, testArrayOperator)
+TEST(testDynamicList, testArrayOperator)
 {
-    StaticList<int, 5>list;
+    DynamicList<int>list(5);
     
     /* 必须先插入元素才能使用数组操作符 */
     for(int i = 0; i < list.capacity(); i++)
@@ -105,8 +105,51 @@ TEST(testStaticList, testArrayOperator)
     EXPECT_TRUE(throwFlag);
 
     /* 测试const对象使用数组操作符 */
-    const StaticList<int, 5> &listRef = list;
+    const DynamicList<int> &listRef = list;
     EXPECT_EQ(listRef[2], 2);
+}
+
+/**
+ * @fn
+ * @brief      测试resize
+ * @param[in]
+ * @param[out]
+ * @retval
+ */
+TEST(testDynamicList, testResize)
+{
+    DynamicList<int>list(5);
+    
+    /* 必须先插入元素才能使用数组操作符 */
+    for(int i = 0; i < list.capacity(); i++)
+    {
+        EXPECT_TRUE(list.insert(i));
+        EXPECT_EQ(list.length(), i + 1);
+    }
+
+    bool throwFlag = false;
+    try
+    {
+        list[5] = 0;
+    }
+    catch(const Exception & e)
+    {
+        throwFlag = true;
+    }
+    EXPECT_TRUE(throwFlag);
+
+    list.resize(6);
+    list.insert(5);
+    throwFlag = false;
+    try
+    {
+        list[5] = 0;
+    }
+    catch(const Exception & e)
+    {
+        throwFlag = true;
+    }
+    EXPECT_FALSE(throwFlag);
 }
 
 #endif

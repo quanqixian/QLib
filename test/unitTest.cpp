@@ -3,6 +3,7 @@
 #include "testSmartPointer.h"    /* 测试SmartPointer类 */
 #include "testSharedPointer.h"   /* 测试SharedPointer类 */
 #include "testStaticList.h"      /* 测试StaticList类 */
+#include "testDynamicList.h"     /* 测试DynamicList类 */
 
 int main(int argc, char **argv)
 {
