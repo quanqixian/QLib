@@ -65,7 +65,7 @@ void DynamicArray<T>::update(T * array, int length)
 template <typename T>
 void DynamicArray<T>::init(T * array, int length)
 {
-    if(array != NULL)
+    if(array != nullptr)
     {
         this->m_array = array;
         this->m_length = length;
@@ -85,7 +85,7 @@ DynamicArray<T>::DynamicArray(int length)
 template <typename T>
 DynamicArray<T>::DynamicArray(const DynamicArray<T> & obj)
 {
-    init(copy(obj.m_array, obj.m_length, obj.m_length), obj.m_lenth);
+    init(copy(obj.m_array, obj.m_length, obj.m_length), obj.m_length);
 }
 
 template <typename T>
