@@ -47,6 +47,7 @@ QLib使用第三方库googletest进行了各个类的单元测试：
 - [智能指针-SharedPointer单元测试](./test/testSharedPointer.h)
 - [顺序表-StaticList单元测试](./test/testStaticList.h)
 - [顺序表-DynamicList单元测试](./test/testDynamicList.h)
+- [数组类-StaticArray单元测试](./test/testStaticArray.h)
 
 ## 5.编译
 
