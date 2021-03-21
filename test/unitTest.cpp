@@ -5,6 +5,7 @@
 #include "testStaticList.h"      /* 测试StaticList类 */
 #include "testDynamicList.h"     /* 测试DynamicList类 */
 #include "testStaticArray.h"     /* 测试StaticArray类 */
+#include "testDynamicArray.h"    /* 测试DynamicArray类 */
 
 int main(int argc, char **argv)
 {
