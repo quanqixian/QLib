@@ -1,12 +1,13 @@
 #ifndef _QMUTEX_H_
 #define _QMUTEX_H_
 
+#include "Object.h"
 #include <pthread.h>
 
 namespace QLib
 {
 
-class QMutex
+class QMutex : public Object
 {
 public:
     enum RecursionMode {NonRecursive, Recursive};
@@ -67,7 +68,7 @@ bool QMutex::isRecursive() const
     return (m_recursionMode == Recursive);
 }
 
-class QMutexLocker
+class QMutexLocker : public Object
 {
 public:
     inline explicit QMutexLocker(QMutex * m);

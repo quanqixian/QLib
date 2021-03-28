@@ -1,12 +1,13 @@
 #ifndef _QTHREAD_H_
 #define _QTHREAD_H_
 
+#include "Object.h"
 #include <pthread.h>
 
 namespace QLib
 {
 
-class QThread
+class QThread : public Object
 {
 private:
     volatile bool m_isRunning = false;   /* 线程运行标志 */

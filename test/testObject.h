@@ -2,7 +2,6 @@
 #define _TEST_OBJECT_H_
 
 #include "Object.h"
-#include <iostream>
 #include "gtest/gtest.h"
 
 using namespace QLib;

@@ -6,6 +6,7 @@
 #include "testDynamicList.h"     /* 测试DynamicList类 */
 #include "testStaticArray.h"     /* 测试StaticArray类 */
 #include "testDynamicArray.h"    /* 测试DynamicArray类 */
+#include "testQThread.h"         /* 测试QThread类 */
 
 int main(int argc, char **argv)
 {
