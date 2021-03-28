@@ -36,7 +36,8 @@ QLib中各个类的继承关系如下图：
 - [04-2.顺序表的抽象实现](./docs/04_顺序表/04_2顺序表的抽象实现/04-2.顺序表的抽象实现.md)
 - [04-3.静态顺序表和动态顺序表的实现](./docs/04_顺序表/04_3静态顺序表和动态顺序表/04-3.静态顺序表和动态顺序表.md)
 - [05.数组类的设计与实现](./docs/05_数组类的设计与实现/05.数组类的设计与实现.md)
-- [基于RAII机制的QMutex和QMutexLocker设计与实现.md](./docs/QMutex和QMutexLocker设计与实现/基于RAII机制的QMutex和QMutexLocker设计与实现.md)
+- [基于RAII机制的QMutex和QMutexLocker设计与实现](./docs/QMutex和QMutexLocker设计与实现/基于RAII机制的QMutex和QMutexLocker设计与实现.md)
+- [仿Qt的线程类QThread设计与实现](./docs/QThread线程类的设计与实现/QThread线程类的设计与实现.md)
 
 ## 4.单元测试
 
