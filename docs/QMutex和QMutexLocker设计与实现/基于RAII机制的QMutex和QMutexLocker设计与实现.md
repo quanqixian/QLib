@@ -102,5 +102,5 @@ QMutex中声明了互斥锁的基本操作：lock、unlock、trylock等，这些
 
 只需要根据上面分析的实现要点，仿照实现类似的功能。
 
-[**QMutex**]()
+[**QMutex**](../../QLib/QMutex.h)
 
