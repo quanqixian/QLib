@@ -13,7 +13,7 @@ using namespace QLib;
  * @param[out]
  * @retval
  */
-TEST(testOThread, basicUse)
+TEST(testQThread, basicUse)
 {
     class TesetThread : public QThread
     {

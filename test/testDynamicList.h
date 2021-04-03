@@ -30,6 +30,7 @@ TEST(testDynamicList, testBasicUse)
         int temp = 0;
         EXPECT_TRUE(list.get(i, temp));
         EXPECT_EQ(temp, i);
+        EXPECT_EQ(list.get(i), i);
     }
 
     EXPECT_TRUE(list.remove(0));
