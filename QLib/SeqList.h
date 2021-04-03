@@ -19,6 +19,7 @@ public:
     bool remove(int i) override;
     bool set(int i, const T & e) override;
     bool get(int i, T & e) const override;
+    T get(int i) const override;
     int length() const override;
     void clear() override;
 
@@ -96,6 +97,20 @@ bool SeqList<T>::get(int i, T & e) const
     }
 
     return ret;
+}
+
+template <typename T>
+T SeqList<T>::get(int i) const
+{
+    T ret;
+    if(get(i, ret))
+    {
+        return ret;
+    }
+    else
+    {
+        THROW_EXCEPTION(IndexOutOfBoundsException, "Invalid parameter i to get element.");
+    }
 }
 
 template <typename T>
