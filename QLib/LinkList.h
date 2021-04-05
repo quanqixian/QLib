@@ -26,6 +26,8 @@ protected:
     int m_length;
 protected:
     Node * position(int i) const;
+    virtual Node * create();        /* 单链表内部进行create封装 */
+    virtual void destroy(Node * pn);/* 单链表内部进行delete封装 */
 public:
     LinkList();
     bool insert(int i, const T & e) override;
@@ -37,6 +39,15 @@ public:
     int length() const override;
     void clear() override;
     int find(const T & e) const override;
+private:
+    Node * m_current;/* 游标 */
+    int m_step;
+public:
+    bool move(int i, int step = 1);
+    bool end();
+    T current();
+    bool next();
+
     ~LinkList();
 };
 
@@ -53,6 +64,18 @@ typename LinkList<T>::Node * LinkList<T>::position(int i) const
     return ret;
 }
 
+template <typename T>
+typename LinkList<T>::Node * LinkList<T>::create()
+{
+    return new Node();
+}
+
+template <typename T>
+void LinkList<T>::destroy(Node * pn)
+{
+    delete pn;
+}
+
 template<typename T>
 LinkList<T>::LinkList()
 {
@@ -67,7 +90,7 @@ bool LinkList<T>::insert(int i, const T & e)
 
     if(ret)
     {
-        Node * node = new Node();
+        Node * node = create();
         if(node != nullptr)
         {
             Node * current = position(i);
@@ -103,7 +126,7 @@ bool LinkList<T>::remove(int i)
         Node * toDel = current->next;
         current->next = toDel->next;
 
-        delete toDel;
+        destroy(toDel);
         m_length--;
     }
 
@@ -163,7 +186,7 @@ void LinkList<T>::clear()
     {
         Node * toDel = m_header.next;
         m_header.next = toDel->next;
-        delete toDel;
+        destroy(toDel);
     }
 
     m_length = 0;
@@ -197,6 +220,53 @@ int LinkList<T>::find(const T & e) const
     }
 
     return ret;
+}
+
+template <typename T>
+bool LinkList<T>::move(int i, int step)
+{
+    bool ret = (0 <= i) && (i < m_length) && (step > 0);
+
+    if(ret)
+    {
+        m_current = position(i)->next;
+        m_step = step;
+    }
+
+    return ret;
+}
+
+template <typename T>
+bool LinkList<T>::end()
+{
+    return (m_current == NULL);
+}
+
+template <typename T>
+T  LinkList<T>::current()
+{
+    if(!end())
+    {
+        return m_current->value;
+    }
+    else 
+    {
+        THROW_EXCEPTION(InvalidOperationException, "No value at current position...");
+    }
+}
+
+template <typename T>
+bool LinkList<T>::next()
+{
+    int i = 0;
+
+    while((i < m_step) && (!end()))
+    {
+        m_current = m_current->next;
+        i++;
+    }
+
+    return (i == m_step);
 }
 
 }
