@@ -22,6 +22,7 @@ public:
     T get(int i) const override;
     int length() const override;
     void clear() override;
+    int find(const T & e) const override;
 
     /* 顺序存储线性表的数组访问方式 */
     T & operator[] (int i);
@@ -142,6 +143,23 @@ const T& SeqList<T>::operator[](int i) const
     {
         THROW_EXCEPTION(IndexOutOfBoundsException, "Paramenter i is invalid");
     }
+}
+
+template <typename T>
+int SeqList<T>::find(const T & e) const
+{
+    int ret = -1;
+
+    for(int i = 0; i < m_length; i++)
+    {
+        if(m_array[i] == e)
+        {
+            ret = i;
+            break;
+        }
+    }
+
+    return ret;
 }
 
 }

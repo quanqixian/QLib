@@ -31,7 +31,9 @@ TEST(testDynamicList, testBasicUse)
         EXPECT_TRUE(list.get(i, temp));
         EXPECT_EQ(temp, i);
         EXPECT_EQ(list.get(i), i);
+        EXPECT_EQ(list.find(i), i);
     }
+    EXPECT_EQ(list.find(100), -1);
 
     EXPECT_TRUE(list.remove(0));
     EXPECT_EQ(list.length(), 4);
@@ -151,6 +153,45 @@ TEST(testDynamicList, testResize)
         throwFlag = true;
     }
     EXPECT_FALSE(throwFlag);
+}
+
+/**
+ * @fn
+ * @brief      测试 类类型元素的查找
+ * @param[in]
+ * @param[out]
+ * @retval
+ */
+TEST(testDynamicList, testFindClassType)
+{
+    class Test : public Object
+    {
+        int i;
+    public:
+        Test(int v = 0)
+        {
+            i = v;
+        }
+        bool operator == (const Test& obj)
+        {
+            return this->i == obj.i;
+        }
+    };
+    class TestB : public Object
+    {
+    };
+    DynamicList<Test>list(5);
+
+    for(int i = 0; i < list.capacity(); i++)
+    {
+        EXPECT_TRUE(list.insert(Test(i)));
+        EXPECT_EQ(list.find(Test(i)), i);
+    }
+
+    EXPECT_EQ(list.find(Test(100)), -1);
+
+    /* 继承父类中默认的相等比较操作符，使编译不会报错 */
+    DynamicList<TestB>listB(5);
 }
 
 #endif

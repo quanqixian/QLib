@@ -36,6 +36,7 @@ public:
     T get(int i) const override;
     int length() const override;
     void clear() override;
+    int find(const T & e) const override;
     ~LinkList();
 };
 
@@ -172,6 +173,30 @@ template<typename T>
 LinkList<T>::~LinkList()
 {
     clear();
+}
+
+template<typename T>
+int LinkList<T>::find(const T & e) const
+{
+    int ret = -1;
+    int i = 0;
+    Node * node = m_header.next;
+
+    while(node)
+    {
+        if(node->value == e)
+        {
+            ret = i;
+            break;
+        }
+        else
+        {
+            node = node->next;
+            i++;
+        }
+    }
+
+    return ret;
 }
 
 }
