@@ -3,7 +3,7 @@
 
 #include "LinkList.h"
 
-namespace DTLib
+namespace QLib
 {
 
 template <typename T, int N>/* N用来定义预留空间大小使用 */
