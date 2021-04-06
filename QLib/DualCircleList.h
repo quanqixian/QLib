@@ -71,7 +71,7 @@ DualCircleList<T>::DualCircleList()
 template <typename T>
 bool DualCircleList<T>::insert(const T & e)
 {
-    return inset(this->m_length, e);
+    return insert(this->m_length, e);
 }
 
 template<typename T>
@@ -232,7 +232,7 @@ bool DualCircleList<T>::next()
         }
         else
         {
-            this->m_current=this->m_current->next;
+            this->m_current = this->m_current->next;
         }
     }
 
