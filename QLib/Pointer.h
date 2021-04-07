@@ -1,11 +1,13 @@
 #ifndef POINTER_H_
 #define POINTER_H_
 
+#include "Object.h"
+
 namespace QLib
 {
 
 template<typename T>
-class Pointer
+class Pointer : public Object
 {
 protected:
     T * m_pointer;

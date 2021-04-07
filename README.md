@@ -25,7 +25,7 @@
 
 QLib中各个类的继承关系如下图：
 
-
+![uml](./docs/00_README/pic/uml.jpg)
 
 在[docs](./docs)目录下存放了每个类的设计说明文档：
 

@@ -6,7 +6,7 @@ namespace QLib
 {
 
 #define THROW_EXCEPTION(e, m) (throw e(m, __FILE__, __LINE__))
-class Exception
+class Exception : public Object
 {
 protected:
     char * m_message;
