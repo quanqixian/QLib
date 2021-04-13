@@ -7,6 +7,7 @@
 #include "testStaticArray.h"     /* 测试StaticArray类 */
 #include "testDynamicArray.h"    /* 测试DynamicArray类 */
 #include "testQThread.h"         /* 测试QThread类 */
+#include "testSort.h"            /* 测试排序 */
 
 int main(int argc, char **argv)
 {
