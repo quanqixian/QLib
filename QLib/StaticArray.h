@@ -6,11 +6,11 @@
 namespace QLib
 {
 
-template <typename T, int N>
+template <typename T, unsigned int N>
 class StaticArray : public Array<T>
 {
 protected:
-    T m_space[N];
+    T m_space[N ? N : 1];
 public:
     StaticArray();
     StaticArray(const StaticArray<T, N> & obj);
@@ -18,13 +18,13 @@ public:
     int length() const;
 };
 
-template <typename T, int N>
+template <typename T, unsigned int N>
 StaticArray<T, N>::StaticArray()
 {
     this->m_array = m_space;
 }
 
-template <typename T, int N>
+template <typename T, unsigned int N>
 StaticArray<T, N>::StaticArray(const StaticArray<T, N> & obj)
 {
     this->m_array = m_space;
@@ -34,7 +34,7 @@ StaticArray<T, N>::StaticArray(const StaticArray<T, N> & obj)
     }
 }
 
-template <typename T, int N>
+template <typename T, unsigned int N>
 StaticArray<T, N>& StaticArray<T, N>::operator = (const StaticArray<T, N> & obj)
 {
     if(this != &obj)
@@ -47,7 +47,7 @@ StaticArray<T, N>& StaticArray<T, N>::operator = (const StaticArray<T, N> & obj)
     return *this;
 }
 
-template <typename T, int N>
+template <typename T, unsigned int N>
 int StaticArray<T, N>::length() const
 {
     return N;
