@@ -1,7 +1,7 @@
-#ifndef _TEST_MATRIXGRAPH_H_
-#define _TEST_MATRIXGRAPH_H_
+#ifndef _TEST_LISTGRAPH_H_
+#define _TEST_LISTGRAPH_H_
 
-#include "MatrixGraph.h"
+#include "ListGraph.h"
 #include "gtest/gtest.h"
 #include <SharedPointer.h>
 #include <iostream>
@@ -15,7 +15,7 @@ using namespace QLib;
  * @param[out]
  * @retval
  */
-TEST(testMatrixGraph, testGraph)
+TEST(testListGraph, testGraph)
 {
     Graph<int, int> * p = nullptr;
     EXPECT_EQ(p, nullptr);
@@ -23,12 +23,12 @@ TEST(testMatrixGraph, testGraph)
 
 /**
  * @fn
- * @brief      测试顶点的获取和设置
+ * @brief      测试顶点的添加和删除
  * @param[in]
  * @param[out]
  * @retval
  */
-TEST(testMatrixGraph, testSetGetVertex)
+TEST(testListGraph, testAddDelVertex)
 {
     /**
      * 创建以下图结构：
@@ -39,7 +39,54 @@ TEST(testMatrixGraph, testSetGetVertex)
      *        <-----------
      *             2
      */
-    MatrixGraph<3, int, int>  g;
+    ListGraph<int, int>  g;
+
+	g.addVertex(100);
+	g.addVertex(200);
+	g.addVertex(300);
+
+    /* 测试获取顶点值 */
+    EXPECT_EQ(g.getVertex(0), 100);
+    EXPECT_EQ(g.getVertex(1), 200);
+    EXPECT_EQ(g.getVertex(2), 300);
+
+
+    /* 测试设置边 */
+    g.setEdge(0, 1, 1);
+    g.setEdge(1, 0, 2);
+    g.setEdge(1, 2, 3);
+
+    /* 测试删除顶点 */
+    g.removeVertex();
+
+    /* 测试边的数量 */
+    EXPECT_EQ(g.eCount(), 2);
+
+}
+
+/**
+ * @fn
+ * @brief      测试顶点的获取和设置
+ * @param[in]
+ * @param[out]
+ * @retval
+ */
+TEST(testListGraph, testSetGetVertex)
+{
+    /**
+     * 创建以下图结构：
+     *
+     *             1 
+     *        ----------->          3
+     *     [0]             [1] ----------->[2]
+     *        <-----------
+     *             2
+     */
+    ListGraph<int, int>  g;
+
+	g.addVertex();
+	g.addVertex();
+	g.addVertex();
 
     /* 测试设置顶点值 */
     g.setVertex(0, 100);
@@ -72,7 +119,7 @@ TEST(testMatrixGraph, testSetGetVertex)
  * @param[out]
  * @retval
  */
-TEST(testMatrixGraph, testSetGetEdge)
+TEST(testListGraph, testSetGetEdge)
 {
     /**
      * 创建以下图结构：
@@ -84,7 +131,11 @@ TEST(testMatrixGraph, testSetGetEdge)
      *             2
      */
 
-    MatrixGraph<3, int, int>  g;
+    ListGraph<int, int>  g;
+
+	g.addVertex();
+	g.addVertex();
+	g.addVertex();
 
     /* 测试设置边 */
     g.setEdge(0, 1, 1);
@@ -112,12 +163,12 @@ TEST(testMatrixGraph, testSetGetEdge)
 
 /**
  * @fn
- * @brief      MatrixGraph综合测试
+ * @brief      ListGraph综合测试
  * @param[in]
  * @param[out]
  * @retval
  */
-TEST(testMatrixGraph, comprehensiveTest)
+TEST(testListGraph, comprehensiveTest)
 {
     /**
      * 创建以下图结构：
@@ -129,7 +180,11 @@ TEST(testMatrixGraph, comprehensiveTest)
      *             2
      */
 
-    MatrixGraph<3, int, int>  g;
+    ListGraph<int, int>  g;
+
+	g.addVertex();
+	g.addVertex();
+	g.addVertex();
 
     g.setEdge(0, 1, 1);
     g.setEdge(1, 0, 2);

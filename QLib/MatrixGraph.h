@@ -18,22 +18,22 @@ protected:
     int m_eCount;
 public:
     MatrixGraph();
-    V getVertex(int i);
-    bool getVertex(int i, V & value);
-    bool setVertex(int i, const V & value);
+    V getVertex(int i) override;
+    bool getVertex(int i, V & value) override;
+    bool setVertex(int i, const V & value) override;
 
-    SharedPointer<Array<int> > getAdjacent(int i);
-    bool isAdjacent(int i, int j);
+    SharedPointer<Array<int> > getAdjacent(int i) override;
+    bool isAdjacent(int i, int j) override;
 
-    E getEdge(int i, int j);
-    bool getEdge(int i, int j, E & value);
-    bool setEdge(int i, int j, const E & value);
-    bool removeEdge(int i, int j);
+    E getEdge(int i, int j) override;
+    bool getEdge(int i, int j, E & value) override;
+    bool setEdge(int i, int j, const E & value) override;
+    bool removeEdge(int i, int j) override;
 
-    int vCount();
-    int eCount();
-    int OD(int i);
-    int ID(int i);
+    int vCount() override;
+    int eCount() override;
+    int OD(int i) override;
+    int ID(int i) override;
     ~MatrixGraph();
 };
 
