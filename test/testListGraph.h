@@ -41,9 +41,9 @@ TEST(testListGraph, testAddDelVertex)
      */
     ListGraph<int, int>  g;
 
-	g.addVertex(100);
-	g.addVertex(200);
-	g.addVertex(300);
+    g.addVertex(100);
+    g.addVertex(200);
+    g.addVertex(300);
 
     /* 测试获取顶点值 */
     EXPECT_EQ(g.getVertex(0), 100);
@@ -84,9 +84,9 @@ TEST(testListGraph, testSetGetVertex)
      */
     ListGraph<int, int>  g;
 
-	g.addVertex();
-	g.addVertex();
-	g.addVertex();
+    g.addVertex();
+    g.addVertex();
+    g.addVertex();
 
     /* 测试设置顶点值 */
     g.setVertex(0, 100);
@@ -133,9 +133,9 @@ TEST(testListGraph, testSetGetEdge)
 
     ListGraph<int, int>  g;
 
-	g.addVertex();
-	g.addVertex();
-	g.addVertex();
+    g.addVertex();
+    g.addVertex();
+    g.addVertex();
 
     /* 测试设置边 */
     g.setEdge(0, 1, 1);
@@ -182,9 +182,9 @@ TEST(testListGraph, comprehensiveTest)
 
     ListGraph<int, int>  g;
 
-	g.addVertex();
-	g.addVertex();
-	g.addVertex();
+    g.addVertex();
+    g.addVertex();
+    g.addVertex();
 
     g.setEdge(0, 1, 1);
     g.setEdge(1, 0, 2);
