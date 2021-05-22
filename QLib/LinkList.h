@@ -239,7 +239,7 @@ bool LinkList<T>::move(int i, int step)
 template <typename T>
 bool LinkList<T>::end()
 {
-    return (m_current == NULL);
+    return (m_current == nullptr);
 }
 
 template <typename T>

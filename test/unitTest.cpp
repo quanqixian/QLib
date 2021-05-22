@@ -6,10 +6,11 @@
 #include "testDynamicList.h"     /* 测试DynamicList类 */
 #include "testStaticArray.h"     /* 测试StaticArray类 */
 #include "testDynamicArray.h"    /* 测试DynamicArray类 */
-#include "testQThread.h"         /* 测试QThread类 */
+#include "testLinkList.h"        /* 测试单链表类 */
 #include "testSort.h"            /* 测试排序 */
 #include "testMatrixGraph.h"     /* 测试邻接矩阵图 */   
 #include "testListGraph.h"       /* 测试邻接链表图 */   
+#include "testQThread.h"         /* 测试QThread类 */
 
 int main(int argc, char **argv)
 {
