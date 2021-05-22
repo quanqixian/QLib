@@ -53,6 +53,8 @@ QLib使用第三方库googletest进行了各个类的单元测试：
 - [顺序表-DynamicList单元测试](./test/testDynamicList.h)
 - [数组类-StaticArray单元测试](./test/testStaticArray.h)
 - [数组类-DynamicArray单元测试](./test/testDynamicArray.h)
+- [图-临接矩阵图MatrixGraph单元测试](./test/testMatrixGraph.h)
+- [图-临接链表图ListGraph单元测试](./test/testListGraph.h)
 - [线程类QThread单元测试](./test/testQThread.h)
 
 ## 5.编译单元测试
