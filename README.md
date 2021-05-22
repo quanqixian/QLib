@@ -18,7 +18,7 @@
 - 排序类的实现，选择排序、插入排序、冒泡排序，希尔排序归并排序、快速排序等排序算法的实现
 - 通用树类的实现，实现了树的查找、插入、清除、删除、结点数/高度/度的获取、树的层次遍历等操作
 - 二叉树类的实现，实现了树的查找.插入.清除、删除、结点数/高度/度的获取、树的层次遍历和典型遍历、克隆、比较、相加、线索化等操作
-- 图类的实现，其中有图的遍历、最小生成树、最短路径算法的实现
+- 图的邻接矩阵和邻接表存储实现，图的深度优先/广度优先遍历、最小生成树、最短路径算法的实现
 - 基于RAII机制的QMutex和QMutexLocker、仿Qt的线程类QThread
 
 ## 3.详细的说明文档
@@ -55,8 +55,8 @@ QLib使用第三方库googletest进行了各个类的单元测试：
 - [数组类-DynamicArray单元测试](./test/testDynamicArray.h)
 - [链表-LinkList单元测试](./test/testLinkList.h)
 - [排序类-Sort单元测试](./test/testSort.h)
-- [图-临接矩阵图MatrixGraph单元测试](./test/testMatrixGraph.h)
-- [图-临接链表图ListGraph单元测试](./test/testListGraph.h)
+- [图-邻接矩阵图MatrixGraph单元测试](./test/testMatrixGraph.h)
+- [图-邻接链表图ListGraph单元测试](./test/testListGraph.h)
 - [线程类QThread单元测试](./test/testQThread.h)
 
 ## 5.编译单元测试
