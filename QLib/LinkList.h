@@ -39,7 +39,7 @@ public:
     int length() const override;
     void clear() override;
     int find(const T & e) const override;
-private:
+protected:
     Node * m_current;/* 游标 */
     int m_step;
 public:
@@ -125,6 +125,11 @@ bool LinkList<T>::remove(int i)
         Node * current = position(i);
         Node * toDel = current->next;
         current->next = toDel->next;
+
+        if(m_current == toDel)
+        {
+            m_current = toDel->next;
+        }
 
         destroy(toDel);
         m_length--;

@@ -84,7 +84,7 @@ bool CircleList<T>::remove(int i)
             if(this->m_length > 0)
             {
                 last_to_first();
-                if(this->current == toDel)
+                if(this->m_current == toDel)
                 {
                     this->m_current = toDel->next;
                 }
@@ -176,7 +176,7 @@ bool CircleList<T>::move(int i,int step)
 template <typename T>
 bool CircleList<T>::end()
 {
-    return (this->m_length == 0) || (this->m_current == nullptr);
+    return ((this->m_length == 0) || (this->m_current == nullptr));
 }
 
 template <typename T>
