@@ -3,6 +3,7 @@
 
 #include "CircleList.h"
 #include "gtest/gtest.h"
+#include <iostream>
 
 using namespace QLib;
 
@@ -13,7 +14,7 @@ using namespace QLib;
  * @param[out]
  * @retval
  */
-TEST(testCircleList, basicUse01)
+TEST(testCircleList, testAsLinkList01)
 {
     CircleList<int> list;
 
@@ -74,7 +75,7 @@ TEST(testCircleList, basicUse01)
  * @param[out]
  * @retval
  */
-TEST(testCircleList, basicUse02)
+TEST(testCircleList, testAsLinkList02)
 {
     CircleList<int> list;
 
@@ -113,13 +114,53 @@ TEST(testCircleList, ergodic)
         list.insert(i);
     }
 
-#if 0
+    for(int i = 0; i< 15; i++)
+    {
+        EXPECT_EQ(list.get(i), i%5);
+    }
+
     /* 遍历链表 */
-    for(int i = (list.move(0, 1), 0); !list.end(); list.next())
+    for(int i = (list.move(0, 1), 0); (!list.end()) && (i < 5); list.next())
     {
         EXPECT_EQ(list.current(), i);
         i++;
     }
-#endif
+}
+
+/**
+ * @fn
+ * @brief      测试约瑟夫环
+ * @param[in]
+ * @param[out]
+ * @retval
+ */
+TEST(testCircleList, JosephRing)
+{
+    CircleList<int> list;
+
+    /* 插入元素 */
+    for(int i = 1; i <= 41; i++)
+    {
+        list.insert(i);
+    }
+
+    int array[] = {3, 6, 9, 12, 15, 18, 21, 24, 
+        27, 30, 33, 36, 39, 1, 5, 10, 14, 19, 23,
+        28, 32, 37, 41, 7, 13, 20, 26, 34, 40, 8,
+        17, 29, 38, 11, 25, 2, 22, 4, 35, 16, 31};
+
+    /**
+     * 已知n个人（以编号1， 1，2，...，n分别表示）围坐在一张圆桌周围。
+     * 编号为1的人开始从1报数，数到m的那个人出列；他的下一个人又从1开始报数，
+     * 数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。
+     */
+    for(int i = (list.move(0, 3-1), 0); !list.end(); list.remove(list.find(list.current())))
+    {
+        list.next();
+
+        ASSERT_FALSE(i>= 41);
+        EXPECT_EQ(list.current(), array[i]);
+        i++;
+    }
 }
 #endif
