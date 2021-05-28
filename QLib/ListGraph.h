@@ -358,7 +358,7 @@ int ListGraph<V, E>::ID(int i)
 {
     int ret = 0;
 
-    if((0 <= i) && (i <= vCount()))
+    if((0 <= i) && (i < vCount()))
     {
         for(m_list.move(0); !m_list.end(); m_list.next())
         {
