@@ -7,6 +7,7 @@
 #include "testStaticArray.h"     /* 测试StaticArray类 */
 #include "testDynamicArray.h"    /* 测试DynamicArray类 */
 #include "testLinkList.h"        /* 测试单链表类 */
+#include "testDualLinkList.h"    /* 测试双向链表类 */
 #include "testCircleList.h"      /* 测试循环单链表类 */
 #include "testSort.h"            /* 测试排序 */
 #include "testMatrixGraph.h"     /* 测试邻接矩阵图 */   
