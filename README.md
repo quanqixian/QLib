@@ -76,3 +76,8 @@ make
 make runTest
 ```
 
+### 5.3生成单元测试通过率报告和代码覆盖率报告（html格式）
+
+```shell
+make report
+```
