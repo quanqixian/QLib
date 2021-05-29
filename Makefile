@@ -8,9 +8,10 @@ help:
 	@echo "make report   : generate code coverage report and test result report"
 	@echo ""
 
-
+.PHONY:thirdParty
 thirdParty:googletest
 
+.PHONY:googletest
 googletest:
 	@cd ./thirdparty/googletest/; ./build.sh build
 
@@ -18,13 +19,13 @@ unitTest:
 	make -C ./test/
 
 .PHONY:runTest
-runTest:
+runTest:thirdParty
 	make -C ./test/ $@
 
 REPORT_DIR=./report
 #生成测试通过率和代码覆盖率html报告
 .PHONY:report
-report: 
+report:thirdParty
 	make -C ./test $@
 	cp -r ./test/report/  $(REPORT_DIR)
 	@echo ""
