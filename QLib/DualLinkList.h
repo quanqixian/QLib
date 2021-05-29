@@ -216,7 +216,6 @@ int DualLinkList<T>::find(const T&e) const
             node = node->next;
             pos++;
         }
-        return ret;
     }
 
     return ret;
