@@ -1,3 +1,5 @@
+all: thirdParty unitTest
+
 .PHONY:help
 help:
 	@echo ""
@@ -6,7 +8,6 @@ help:
 	@echo "make report   : generate code coverage report and test result report"
 	@echo ""
 
-all: thirdParty unitTest
 
 thirdParty:googletest
 

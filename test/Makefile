@@ -34,14 +34,14 @@ runTest:$(TARGET)
 #生成测试通过率和代码覆盖率html报告
 #
 .PHONY:report
-report: html coverage
+report: testResult coverage
 
 #
 #
 #将gtest执行结果生成为html文件
 #
-.PHONY:html
-html: $(TARGET_COV)
+.PHONY:testResult
+testResult: $(TARGET_COV)
 	rm -rf $(REPORT_DIR)
 	mkdir $(REPORT_DIR)
 	./$(TARGET_COV) --gtest_output=xml:$(XML_RESULT_FILE_NAME) 
