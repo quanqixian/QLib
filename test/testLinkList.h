@@ -13,7 +13,7 @@ using namespace QLib;
  * @param[out]
  * @retval
  */
-TEST(testLinkList, basicUse01)
+TEST(testLinkList, insertRemoveSetGet)
 {
     LinkList<int> list;
 
@@ -74,7 +74,7 @@ TEST(testLinkList, basicUse01)
  * @param[out]
  * @retval
  */
-TEST(testLinkList, basicUse02)
+TEST(testLinkList, headInsertandFind)
 {
     LinkList<int> list;
 
@@ -120,4 +120,5 @@ TEST(testLinkList, ergodic)
         i++;
     }
 }
+
 #endif
