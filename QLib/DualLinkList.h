@@ -19,7 +19,7 @@ protected:
     };
     mutable struct : public Object
     {
-        char resrved[sizeof(T)];
+        char reserved[sizeof(T)];
         Node * next;
         Node * pre;
     }m_header;

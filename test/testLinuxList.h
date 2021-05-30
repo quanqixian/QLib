@@ -128,7 +128,7 @@ TEST(testLinuxList, list_headInStructTail)
             snprintf(temp.str, sizeof(temp.str), "hello%d", index);
             index--;
 
-            EXPECT_STREQ(list_entry(slide,struct Node, head)->message.str, temp.str);
+            EXPECT_STREQ(list_entry(slide, struct Node, head)->message.str, temp.str);
         }    
     }
 
@@ -136,7 +136,7 @@ TEST(testLinuxList, list_headInStructTail)
     /* 删除某个结点 */
     list_for_each_safe(slide, tempSlide, list)
     {
-        struct Node * node = list_entry(slide,struct Node,head);
+        struct Node * node = list_entry(slide, struct Node, head);
         if(std::string(node->message.str) == std::string("hello3"))
         {
             list_del(slide);
@@ -156,7 +156,7 @@ TEST(testLinuxList, list_headInStructTail)
             snprintf(temp.str, sizeof(temp.str), "hello%d", buf[index]);
             index++;
 
-            EXPECT_STREQ(list_entry(slide,struct Node,head)->message.str, temp.str);
+            EXPECT_STREQ(list_entry(slide, struct Node, head)->message.str, temp.str);
         }
     }
 }
