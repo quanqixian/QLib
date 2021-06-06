@@ -30,6 +30,27 @@ public:
 
     /* 顺序存储空间的容量 */
     virtual int capacity() const = 0;
+public:
+    class iterator
+    {
+    public:
+        iterator(T * poosition = 0);
+
+        T & operator * () const;
+        T * operator->() const;
+
+        iterator & operator ++();
+        iterator operator ++(int);
+        iterator & operator --();
+        iterator operator --(int);
+
+        bool operator != (const iterator right) const;
+        bool operator == (const iterator right) const;
+    protected:
+        T * m_position;
+    };
+    iterator begin();
+    iterator end();
 };
 
 template <typename T>
@@ -160,6 +181,77 @@ int SeqList<T>::find(const T & e) const
     }
 
     return ret;
+}
+
+template <typename T>
+SeqList<T>::iterator::iterator(T * position) : m_position(position)
+{
+}
+
+template <typename T>
+T & SeqList<T>::iterator::operator * () const
+{
+    return *m_position;
+}
+
+template <typename T>
+T * SeqList<T>::iterator::operator->() const
+{
+    return m_position;
+}
+
+template <typename T>
+typename SeqList<T>::iterator & SeqList<T>::iterator::operator ++()
+{
+    ++m_position;
+    return *this;
+}
+
+template <typename T>
+typename SeqList<T>::iterator SeqList<T>::iterator::operator ++(int)
+{
+    iterator old = *this;
+    ++m_position;
+    return old;
+}
+
+template <typename T>
+typename SeqList<T>::iterator & SeqList<T>::iterator::operator --()
+{
+    --m_position;
+    return *this;
+}
+
+template <typename T>
+typename SeqList<T>::iterator SeqList<T>::iterator::operator --(int)
+{
+    iterator old = *this;
+    --m_position;
+    return old;
+}
+
+template <typename T>
+bool SeqList<T>::iterator::operator != (const iterator right) const
+{
+    return m_position != right.m_position;
+}
+
+template <typename T>
+bool SeqList<T>::iterator::operator == (const iterator right) const
+{
+    return m_position == right.m_position;
+}
+
+template <typename T>
+typename SeqList<T>::iterator SeqList<T>::begin()
+{ 
+    return iterator(m_array);
+}
+
+template <typename T>
+typename SeqList<T>::iterator SeqList<T>::end()
+{
+    return iterator(m_array + capacity());
 }
 
 }

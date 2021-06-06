@@ -152,4 +152,37 @@ TEST(testStaticList, testFindClassType)
     StaticList<TestB, 5>listB;
 }
 
+/**
+ * @fn
+ * @brief      测试仿stl的迭代器
+ * @param[in]
+ * @param[out]
+ * @retval
+ */
+TEST(testStaticList, testIterator)
+{
+    StaticList<int, 5>list;
+
+    for(int i = 0; i < list.capacity(); i++)
+    {
+        EXPECT_TRUE(list.insert(i));
+    }
+
+    int i = 0;
+    for(auto iter = list.begin(); iter!=list.end(); iter++)
+    {
+        EXPECT_EQ(*iter, i);
+        i++;
+    }
+
+    i = 4;
+    StaticList<int, 5>::iterator iter = list.end();
+    while((--iter) != list.begin())
+    {
+        EXPECT_EQ(*iter, i);
+        i--;
+    }
+    EXPECT_EQ(*iter, 0);
+}
+
 #endif
