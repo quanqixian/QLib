@@ -14,13 +14,13 @@ protected:
     struct Node : public Object
     {
         T value;
-        Node * next;
+        Node * next = nullptr;
     };
 
     mutable struct : public Object
     {
         char reserved[sizeof(T)];
-        Node * next;
+        Node * next = nullptr;
     }m_header;
 
     int m_length;
@@ -79,7 +79,6 @@ void LinkList<T>::destroy(Node * pn)
 template<typename T>
 LinkList<T>::LinkList()
 {
-    m_header.next = nullptr;
     m_length = 0;
 }
 
