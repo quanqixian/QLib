@@ -46,7 +46,6 @@ TEST(testLinkStack, PushPopTopSizeClear)
     }
     EXPECT_EQ(stack.size(), 0);
 
-
     stack.push(5);
     EXPECT_EQ(stack.size(), 1);
     stack.clear();
