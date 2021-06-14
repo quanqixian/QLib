@@ -61,6 +61,7 @@ QLib使用第三方库googletest进行了各个类的单元测试：
 - [链表-linux内核链表单元测试](./test/testLinuxList.h)
 - [栈-顺序栈StaticStack单元测试](./test/testStaticStack.h)
 - [栈-链式栈LinkStack单元测试](./test/testLinkStack.h)
+- [队列-顺序队列StaticQueue单元测试](./test/testStaticQueue.h)
 - [排序类-Sort单元测试](./test/testSort.h)
 - [图-邻接矩阵图MatrixGraph单元测试](./test/testMatrixGraph.h)
 - [图-邻接链表图ListGraph单元测试](./test/testListGraph.h)
