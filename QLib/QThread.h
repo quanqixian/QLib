@@ -13,6 +13,9 @@ private:
     volatile bool m_isRunning = false;   /* 线程运行标志 */
     pthread_t m_threadID = 0;            /* 线程ID */
     static void * threadProcess(void * arg);
+private:
+    QThread(const QThread &) = delete;
+    QThread & operator = (const QThread &);
 protected:
     virtual void run(void) = 0;          /* 由子类重写run函数 */
 public:
