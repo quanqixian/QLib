@@ -58,6 +58,7 @@ QLib使用第三方库googletest进行了各个类的单元测试：
 - [数组类-StaticArray单元测试](./test/testStaticArray.h)
 - [数组类-DynamicArray单元测试](./test/testDynamicArray.h)
 - [链表-单链表LinkList单元测试](./test/testLinkList.h)
+- [链表-静态单链表StaticLinkList单元测试](./test/testStaticLinkList.h)
 - [链表-循环单链表CircleList单元测试](./test/testCircleList.h)
 - [链表-双向链表DualLinkList单元测试](./test/testDualLinkList.h)
 - [链表-linux内核链表单元测试](./test/testLinuxList.h)

@@ -41,7 +41,7 @@ typename LinkList<T>::Node * StaticLinkList<T, N>::create() /* 重写create函�
         if(!m_used[i])
         {
             ret = reinterpret_cast<SNode*>(m_space) + i;
-            ret = new(ret)SNode;/* 括号内的地址用于指定想在那一块内存空间中调用构造函数 */
+            ret = new(ret)SNode();/* 括号内的地址用于指定想在那一块内存空间中调用构造函数 */
             m_used[i] = 1;
             break;
         }
