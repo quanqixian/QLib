@@ -1,5 +1,7 @@
 #ifndef _LINUX_LIST_H
 #define _LINUX_LIST_H
+
+#include <stddef.h> 
 /**************************************
 *filename:
 *author  :Q_uan

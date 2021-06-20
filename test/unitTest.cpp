@@ -13,6 +13,7 @@
 #include "testStaticStack.h"     /* 测试顺序栈 */
 #include "testLinkStack.h"       /* 测试链式栈 */
 #include "testStaticQueue.h"     /* 测试顺序队列 */
+#include "testLinkQueue.h"       /* 测试链式队列 */
 #include "testSort.h"            /* 测试排序 */
 #include "testMatrixGraph.h"     /* 测试邻接矩阵图 */   
 // #include "testListGraph.h"       /* 测试邻接链表图 */
