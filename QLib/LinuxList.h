@@ -30,6 +30,10 @@ struct hlist_node {
 
 
 /* partB from: include\linux\stddef.h */
+#ifdef offsetof
+#undef offsetof
+#endif
+
 #ifndef offsetof
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
 #endif
