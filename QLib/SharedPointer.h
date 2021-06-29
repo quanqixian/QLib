@@ -18,6 +18,8 @@ public:
     SharedPointer(T * p = nullptr);
     SharedPointer(const SharedPointer<T>& obj);
     SharedPointer<T>& operator = (const SharedPointer<T>& obj);
+    bool operator == ( const SharedPointer<T> & r) const;
+    bool operator != ( const SharedPointer<T> & r) const;
     void clear();
     ~SharedPointer();
 };
@@ -94,15 +96,15 @@ SharedPointer<T>::~SharedPointer()
 }
 
 template <typename T>
-bool operator == (const SharedPointer<T>&l, const SharedPointer<T>& r)
+bool SharedPointer<T>::operator == ( const SharedPointer<T> & r) const
 {
-    return l.get() == r.get();
+    return this->get() == r.get();
 }
 
 template <typename T>
-bool operator != (const SharedPointer<T>&l, const SharedPointer<T>& r)
+bool SharedPointer<T>::operator != (const SharedPointer<T> & r) const
 {
-    return !(l == r);
+    return !(*this == r);
 }
 
 }
