@@ -5,30 +5,30 @@
 namespace QLib
 {
 
-template <typename T>
-class SmartPointer: public Pointer<T>
+template<typename T, class Del = Deleter<T> >
+class SmartPointer: public Pointer<T, Del>
 {
 public:
     SmartPointer(T *p = nullptr);
-    SmartPointer(const SmartPointer<T>& obj);
-    SmartPointer<T>& operator = (const SmartPointer<T>& obj);
+    SmartPointer(const SmartPointer<T, Del>& obj);
+    SmartPointer<T, Del>& operator = (const SmartPointer<T, Del>& obj);
     ~SmartPointer();
 };
 
-template <typename T>
-SmartPointer<T>::SmartPointer(T* p) : Pointer<T>(p)
+template<typename T, class Del>
+SmartPointer<T, Del>::SmartPointer(T * p) : Pointer<T, Del>(p)
 {
 }
 
-template <typename T>
-SmartPointer<T>::SmartPointer(const SmartPointer<T>& obj)
+template<typename T, class Del>
+SmartPointer<T, Del>::SmartPointer(const SmartPointer<T, Del>& obj)
 {
     this->m_pointer = obj.m_pointer;
     const_cast<SmartPointer<T>& >(obj).m_pointer = nullptr;
 }
 
-template <typename T>
-SmartPointer<T>& SmartPointer<T>::operator = (const SmartPointer<T>& obj)
+template<typename T, class Del>
+SmartPointer<T, Del>& SmartPointer<T, Del>::operator = (const SmartPointer<T, Del>& obj)
 {
     if(this != & obj)
     {
@@ -37,16 +37,16 @@ SmartPointer<T>& SmartPointer<T>::operator = (const SmartPointer<T>& obj)
         this->m_pointer = obj.m_pointer;
         const_cast<SmartPointer<T>& >(obj).m_pointer = nullptr;
 
-        delete p;
+        this->m_deleter(p);
     }
 
     return *this;
 }
 
-template <typename T>
-SmartPointer<T>::~SmartPointer()
+template<typename T, class Del>
+SmartPointer<T, Del>::~SmartPointer()
 {
-    delete this->m_pointer;
+    this->m_deleter(this->m_pointer);
 }
 
 }
