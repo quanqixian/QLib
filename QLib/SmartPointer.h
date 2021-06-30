@@ -24,7 +24,7 @@ template<typename T, class Del>
 SmartPointer<T, Del>::SmartPointer(const SmartPointer<T, Del>& obj)
 {
     this->m_pointer = obj.m_pointer;
-    const_cast<SmartPointer<T>& >(obj).m_pointer = nullptr;
+    const_cast<SmartPointer<T, Del>& >(obj).m_pointer = nullptr;
 }
 
 template<typename T, class Del>
@@ -35,7 +35,7 @@ SmartPointer<T, Del>& SmartPointer<T, Del>::operator = (const SmartPointer<T, De
         T *p = this->m_pointer;
 
         this->m_pointer = obj.m_pointer;
-        const_cast<SmartPointer<T>& >(obj).m_pointer = nullptr;
+        const_cast<SmartPointer<T, Del>& >(obj).m_pointer = nullptr;
 
         this->m_deleter(p);
     }
