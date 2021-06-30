@@ -48,6 +48,44 @@ TEST(testSmartPointer, testAutoFree)
 
 /**
  * @fn
+ * @brief      测试SmartPointe生命周期结束时主动释放数组空间
+ *             在构造函数中设置count变量的值+1，在析构函数中count的值-1
+ * @param[in]
+ * @param[out]
+ * @retval
+ */
+TEST(testSmartPointer, testAutoFreeArray)
+{
+    class Test
+    {
+    public:
+        static int & getCount()
+        {
+            static int count = 0;
+            return count;
+        }
+    public:
+        Test()
+        {
+            getCount() ++;
+        }
+        ~Test()
+        {
+            getCount() --;
+        }
+    };
+
+    auto test = []()->void {
+        SmartPointer<Test, Deleter<Test[]>> sp1 = new Test[5];
+        EXPECT_EQ(Test::getCount(), 5);
+    };
+
+    test();
+
+    EXPECT_EQ(Test::getCount(), 0);
+}
+/**
+ * @fn
  * @brief      测试SmartPointer类-> * 和get函数
  * @param[in]
  * @param[out]

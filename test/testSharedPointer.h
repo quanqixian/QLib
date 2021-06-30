@@ -48,6 +48,45 @@ TEST(testSharedPointer, testAutoFree)
 
 /**
  * @fn
+ * @brief      测试SharedPointer生命周期结束时主动释放数组空间
+ *             在构造函数中设置count的值++，在析构函数中count的值--
+ * @param[in]
+ * @param[out]
+ * @retval
+ */
+TEST(testSharedPointer, testAutoFreeArray)
+{
+    class Test
+    {
+    public:
+        static int & getCount()
+        {
+            static int count = 0;
+            return count;
+        }
+    public:
+        Test()
+        {
+            getCount() ++;
+        }
+        ~Test()
+        {
+            getCount() --;
+        }
+    };
+
+    auto test = []()->void {
+        SharedPointer<Test, Deleter<Test[]> > sp1 = new Test[5];
+        EXPECT_EQ(Test::getCount(), 5);
+    };
+
+    test();
+
+    EXPECT_EQ(Test::getCount(), 0);
+}
+
+/**
+ * @fn
  * @brief      测试SharedPointer类-> * 和get函数
  * @param[in]
  * @param[out]
